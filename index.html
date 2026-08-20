@@ -3,26 +3,68 @@ layout: default
 ---
 
 <header class="hero" id="top">
-  <div class="wrap">
-    <p class="eyebrow"><span class="tracinho"></span>Gestor de Dados · Luanda, Angola</p>
-    <h1>Dados ao serviço do <em>negócio</em>.</h1>
-    <p class="lede">
-      Trabalho onde os dados nascem: sistemas core, ETL, qualidade e reporte regulatório.
-      O objectivo nunca é o dashboard — é a decisão que vem a seguir.
-    </p>
+  <div class="wrap hero-grid">
 
+    <div class="hero-texto">
+      <p class="eyebrow"><span class="tracinho"></span>Gestor de Dados · Luanda, Angola</p>
+      <h1>Dados ao serviço do <em>negócio</em>.</h1>
+      <p class="lede">
+        Trabalho onde os dados nascem: sistemas core, ETL, qualidade e reporte regulatório.
+        O objectivo nunca é o dashboard — é a decisão que vem a seguir.
+      </p>
+      <div class="actions">
+        <a class="btn primary" href="{{ '/artigos/' | relative_url }}">Ler os artigos</a>
+        <a class="btn ghost" href="{{ '/projectos/' | relative_url }}">Projectos</a>
+        {% if site.cv != "" %}<a class="btn ghost" href="{{ site.cv | relative_url }}" target="_blank" rel="noopener">CV (PDF)</a>{% endif %}
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      {% if site.retrato != "" %}
+      <img class="retrato" src="{{ site.retrato | relative_url }}" alt="Joel Coxi">
+      {% else %}
+      <!-- Sem fotografia definida em _config.yml: mostra o painel gráfico -->
+      <svg class="painel" viewBox="0 0 400 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ilustração de um painel de dados">
+        <rect x="0" y="0" width="400" height="340" fill="#121410" stroke="#23261F"/>
+        <line x1="0" y1="46" x2="400" y2="46" stroke="#23261F"/>
+        <circle cx="22" cy="23" r="4" fill="#C6F03C"/>
+        <rect x="38" y="19" width="86" height="8" fill="#23261F"/>
+        <rect x="330" y="19" width="48" height="8" fill="#23261F"/>
+
+        <rect x="24" y="70" width="160" height="7" fill="#23261F"/>
+        <text x="24" y="120" fill="#C6F03C" font-family="monospace" font-size="34" font-weight="bold">98,4%</text>
+        <rect x="24" y="134" width="110" height="6" fill="#23261F"/>
+
+        <g>
+          <rect x="24" y="176" width="26" height="52" fill="#23261F"/>
+          <rect x="60" y="158" width="26" height="70" fill="#23261F"/>
+          <rect x="96" y="196" width="26" height="32" fill="#23261F"/>
+          <rect x="132" y="142" width="26" height="86" fill="#C6F03C"/>
+          <rect x="168" y="170" width="26" height="58" fill="#23261F"/>
+          <line x1="24" y1="228" x2="376" y2="228" stroke="#23261F"/>
+        </g>
+
+        <polyline points="216,206 250,186 284,196 318,152 352,120" fill="none" stroke="#C6F03C" stroke-width="2"/>
+        <circle cx="352" cy="120" r="4" fill="#C6F03C"/>
+        <rect x="216" y="70" width="120" height="7" fill="#23261F"/>
+        <rect x="216" y="88" width="72" height="7" fill="#23261F"/>
+
+        <rect x="24" y="258" width="352" height="1" fill="#23261F"/>
+        <rect x="24" y="276" width="240" height="6" fill="#23261F"/>
+        <rect x="24" y="294" width="180" height="6" fill="#23261F"/>
+        <rect x="24" y="312" width="290" height="6" fill="#23261F"/>
+      </svg>
+      {% endif %}
+    </div>
+
+  </div>
+
+  <div class="wrap">
     <div class="query">
       <span class="cm">-- o que faço, em uma linha</span><br>
       <span class="kw">SELECT</span> problema, dados, decisão<br>
       <span class="kw">FROM</span> negócio<br>
       <span class="kw">WHERE</span> confiança_no_dado = 1<span class="cursor"></span>
-    </div>
-
-    <div class="actions">
-      <a class="btn primary" href="{{ '/artigos/' | relative_url }}">Ler os artigos</a>
-      <a class="btn ghost" href="{{ '/formacao/' | relative_url }}">Formação</a>
-      {% if site.cv != "" %}<a class="btn ghost" href="{{ site.cv | relative_url }}" target="_blank" rel="noopener">CV (PDF)</a>{% endif %}
-      <a class="btn ghost" href="https://www.linkedin.com/in/{{ site.linkedin }}" target="_blank" rel="noopener">LinkedIn</a>
     </div>
   </div>
 </header>
@@ -89,10 +131,12 @@ layout: default
   <div class="wrap">
     <p class="label">Perfil</p>
     <div class="prose">
-      <!-- EDITAR: reescreve com as tuas palavras -->
-      <p>Sou <strong>Gestor de Dados numa seguradora angolana</strong>, numa equipa pequena onde o trabalho vai da extracção no core AS/400 até ao mapa que chega ao regulador. Extraio, transformo, valido e explico.</p>
-      <p>Antes disso passei pela banca, em analítica transversal — comercial, compliance, pagamentos e campanhas. É daí que vem o meu viés: <strong>dados aplicados a problemas de negócio</strong>, não estatística à procura de um problema.</p>
-      <p>Também dou formação em People Analytics e Power BI. Já passaram pelas minhas sessões mais de trinta formandos.</p>
+      <p>Sou <strong>Gestor de Dados numa seguradora angolana</strong>, numa equipa pequena onde o trabalho vai da extracção no core AS/400 até ao mapa que chega ao regulador. Antes disso, dois anos de analítica na banca.</p>
+      <p>Dou também formação em People Analytics e Power BI — mais de trinta pessoas até hoje.</p>
+    </div>
+    <div class="actions">
+      <a class="btn ghost" href="{{ '/sobre/' | relative_url }}">Percurso completo</a>
+      <a class="btn ghost" href="{{ '/formacao/' | relative_url }}">Formação</a>
     </div>
   </div>
 </section>
@@ -101,91 +145,45 @@ layout: default
   <div class="wrap">
     <p class="label">Projectos</p>
     <h2>Casos com dados sintéticos, lógica real.</h2>
-    <p class="prose" style="margin-bottom:38px">
-      Nenhum destes projectos usa dados de clientes ou de empregadores. O que é real é a lógica de negócio e o desenho técnico.
-    </p>
-
     <div class="grid">
-      <!-- EDITAR: duplica este bloco por cada projecto. Apaga-o enquanto não tiveres nenhum. -->
-      <a class="card" href="#" target="_blank" rel="noopener">
-        <span class="tag">Em construção</span>
-        <h3>Nome do projecto</h3>
-        <p>Uma frase sobre o problema de negócio e uma sobre o resultado. Números concretos se os tiveres.</p>
-        <span class="stack">SQL · Python · Power BI</span>
+      {% assign destaques = site.projectos | sort: "ordem" %}
+      {% for p in destaques limit: 3 %}
+      <a class="card" href="{{ p.repo | default: '/projectos/' | relative_url }}" {% if p.repo %}target="_blank" rel="noopener"{% endif %}>
+        <span class="tag">{{ p.topico }}</span>
+        <h3>{{ p.title }}</h3>
+        <p>{{ p.resumo }}</p>
+        <span class="stack">{{ p.stack }}</span>
       </a>
+      {% endfor %}
     </div>
+    <p style="margin-top:28px"><a class="btn ghost" href="{{ '/projectos/' | relative_url }}">Todos os projectos</a></p>
   </div>
 </section>
 
-<section id="competencias">
+{% if site.disponivel %}
+<!-- Este bloco só aparece quando 'disponivel: true' no _config.yml.
+     Enquanto estiver false, o site não sinaliza procura de emprego. -->
+<section id="recrutamento" class="cta">
   <div class="wrap">
-    <p class="label">Competências</p>
-    <div class="skills">
-      <div>
-        <h4>Dados</h4>
-        <ul>
-          <li>T-SQL</li>
-          <li>DB2 for i (AS/400)</li>
-          <li>Modelação dimensional</li>
-          <li>ETL e cargas DM / EDW</li>
-          <li>Qualidade e profiling</li>
-        </ul>
-      </div>
-      <div>
-        <h4>Análise</h4>
-        <ul>
-          <li>Power BI · DAX</li>
-          <li>Python</li>
-          <li>Excel avançado · VBA</li>
-          <li>People Analytics</li>
-        </ul>
-      </div>
-      <div>
-        <h4>Domínio</h4>
-        <ul>
-          <li>Seguros — produção e sinistros</li>
-          <li>Reporte regulatório</li>
-          <li>Banca — analítica comercial</li>
-          <li>Formação e capacitação</li>
-        </ul>
+    <div class="cta-caixa">
+      <p class="label" style="margin-bottom:14px">Para quem recruta</p>
+      <h2>Está a avaliar-me para uma vaga?</h2>
+      <p class="prose">Escreve directamente e respondo em 24 horas — com o CV, referências e o que mais precisar. Sem formulários no meio.</p>
+      <div class="actions">
+        <a class="btn primary" href="mailto:{{ site.email }}?subject=Oportunidade%20profissional">Contacto directo</a>
+        {% if site.cv != "" %}<a class="btn ghost" href="{{ site.cv | relative_url }}" target="_blank" rel="noopener">Descarregar CV</a>{% endif %}
+        <a class="btn ghost" href="{{ '/sobre/' | relative_url }}">Percurso completo</a>
       </div>
     </div>
   </div>
 </section>
-
-<section id="percurso">
-  <div class="wrap">
-    <p class="label">Percurso</p>
-    <div class="path">
-      <div class="step">
-        <p class="when">Actualmente</p>
-        <h3>Gestor de Dados — seguros</h3>
-        <p>Extracção do core, ETL, catálogo de mapas, projectos de inovação em dados, reporte regulatório e validação de cargas.</p>
-      </div>
-      <div class="step">
-        <p class="when">Antes</p>
-        <h3>Técnico júnior — banca</h3>
-        <p>Analítica transversal e dashboards em Power BI ao longo de dois anos.</p>
-      </div>
-      <div class="step">
-        <p class="when">Em paralelo</p>
-        <h3>Formador de People Analytics</h3>
-        <p>Formação em People Analytics e Power BI a profissionais de RH e de negócio.</p>
-      </div>
-      <div class="step">
-        <p class="when">Formação</p>
-        <h3>Licenciatura em Engenharia Informática</h3>
-        <p>Universidade Kimpa Vita. Certificado de Mérito por distinção académica. HackerRank SQL (Advanced).</p>
-      </div>
-    </div>
-  </div>
-</section>
+{% endif %}
 
 <section id="contacto" class="contact">
   <div class="wrap">
     <p class="label">Contacto</p>
     <h2>Se há um problema de dados por resolver, falemos.</h2>
-    <p class="prose">Aberto a conversas sobre analítica, qualidade de dados e formação.</p>
+    <p class="prose">Analítica, qualidade de dados, formação — ou para discordares de alguma coisa que escrevi. Respondo a todas as mensagens.</p>
     {% if site.formspree != "" %}
     <form class="form" action="https://formspree.io/f/{{ site.formspree }}" method="POST">
       <label>Nome<input type="text" name="nome" required></label>
@@ -194,10 +192,9 @@ layout: default
       <button type="submit" class="btn primary">Enviar mensagem</button>
     </form>
     {% else %}
-    <div class="links">
+    <div class="contacto-linha">
       <a class="btn primary" href="mailto:{{ site.email }}">Enviar email</a>
-      <a class="btn ghost" href="https://www.linkedin.com/in/{{ site.linkedin }}" target="_blank" rel="noopener">LinkedIn</a>
-      <a class="btn ghost" href="https://github.com/{{ site.github }}" target="_blank" rel="noopener">GitHub</a>
+      {% include redes.html %}
     </div>
     {% endif %}
   </div>

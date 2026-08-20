@@ -21,9 +21,10 @@
     <nav class="nav">
       <a href="{{ '/artigos/' | relative_url }}">Artigos</a>
       <a href="{{ '/videos/' | relative_url }}">Vídeos</a>
+      <a href="{{ '/projectos/' | relative_url }}">Projectos</a>
       <a href="{{ '/sql/' | relative_url }}">SQL</a>
       <a href="{{ '/formacao/' | relative_url }}">Formação</a>
-      <a href="{{ '/#contacto' | relative_url }}">Contacto</a>
+      <a href="{{ '/sobre/' | relative_url }}">Sobre</a>
     </nav>
   </div>
 </div>
@@ -33,11 +34,11 @@
 <div class="wrap">
   <footer>
     <span>mr.coxi<span class="dot">.</span> — Luanda, Angola</span>
-    <span>
-      <a href="{{ '/feed.xml' | relative_url }}">RSS</a> ·
-      <a href="https://www.linkedin.com/in/{{ site.linkedin }}" target="_blank" rel="noopener">LinkedIn</a> ·
+    <span class="redes-pequenas">
+      <a href="{{ '/feed.xml' | relative_url }}">RSS</a>
+      <a href="https://www.linkedin.com/in/{{ site.linkedin }}" target="_blank" rel="noopener">LinkedIn</a>
       <a href="https://github.com/{{ site.github }}" target="_blank" rel="noopener">GitHub</a>
-      {% if site.youtube != "" %} · <a href="{{ site.youtube }}" target="_blank" rel="noopener">YouTube</a>{% endif %}
+      {% if site.youtube != "" %}<a href="{{ site.youtube }}" target="_blank" rel="noopener">YouTube</a>{% endif %}
     </span>
   </footer>
 </div>

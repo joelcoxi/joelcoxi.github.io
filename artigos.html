@@ -17,9 +17,16 @@ permalink: /artigos/
 
 <section>
   <div class="wrap">
-    <div class="lista">
+
+    <div class="pesquisa">
+      <input type="search" id="procura" placeholder="Procurar por título, tema ou palavra…" aria-label="Procurar artigos">
+      <span class="contador" id="contador"></span>
+    </div>
+
+    <div class="lista" id="lista-artigos">
       {% for post in site.posts %}
-      <a class="linha" href="{{ post.url | relative_url }}">
+      <a class="linha" href="{{ post.url | relative_url }}"
+         data-texto="{{ post.title | downcase }} {{ post.categoria | downcase }} {{ post.resumo | downcase }}">
         <span class="linha-meta">{{ post.date | date: "%d.%m.%Y" }}{% if post.categoria %} · {{ post.categoria }}{% endif %} · {{ post.content | number_of_words | divided_by: 200 | plus: 1 }} min</span>
         <span class="linha-titulo">{{ post.title }}</span>
         {% if post.resumo %}<span class="linha-resumo">{{ post.resumo }}</span>{% endif %}
@@ -28,5 +35,28 @@ permalink: /artigos/
       <p class="prose">Ainda não há artigos publicados. O primeiro está a caminho.</p>
       {% endfor %}
     </div>
+
+    <p class="vazio" id="sem-resultados" hidden>Nada encontrado para essa procura.</p>
   </div>
 </section>
+
+<script>
+(function(){
+  var campo = document.getElementById('procura');
+  var itens = document.querySelectorAll('#lista-artigos .linha');
+  var vazio = document.getElementById('sem-resultados');
+  var cont  = document.getElementById('contador');
+  function actualiza(){
+    var termo = (campo.value || '').toLowerCase().trim();
+    var n = 0;
+    itens.forEach(function(it){
+      var mostra = termo === '' || it.dataset.texto.indexOf(termo) !== -1;
+      it.hidden = !mostra;
+      if (mostra) n++;
+    });
+    vazio.hidden = n > 0;
+    cont.textContent = termo === '' ? '' : n + (n === 1 ? ' artigo' : ' artigos');
+  }
+  if (campo) campo.addEventListener('input', actualiza);
+})();
+</script>

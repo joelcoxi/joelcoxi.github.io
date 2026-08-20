@@ -15,6 +15,20 @@ permalink: /formacao/
   </div>
 </section>
 
+
+<section class="numeros-faixa">
+  <div class="wrap">
+    <div class="numeros">
+      {% for n in site.data.numeros %}
+      <div class="numero">
+        <span class="numero-valor">{{ n.valor }}</span>
+        <span class="numero-rotulo">{{ n.rotulo }}</span>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
 <section>
   <div class="wrap">
     <p class="label">Programas</p>
@@ -54,6 +68,23 @@ permalink: /formacao/
     </div>
   </div>
 </section>
+
+
+{% if site.data.testemunhos.size > 0 %}
+<section id="testemunhos">
+  <div class="wrap">
+    <p class="label">Quem passou pelas sessões</p>
+    <div class="testemunhos">
+      {% for t in site.data.testemunhos %}
+      <blockquote class="testemunho">
+        <p>{{ t.texto }}</p>
+        <cite>{% if t.nome %}{{ t.nome }}{% endif %}{% if t.funcao %}<span>{{ t.funcao }}</span>{% endif %}</cite>
+      </blockquote>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
 
 <section id="pedido">
   <div class="wrap estreito">

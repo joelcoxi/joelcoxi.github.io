@@ -1,0 +1,8 @@
+# Uma entrada por fotografia.
+# 1) carrega a imagem para assets/galeria/
+# 2) acrescenta aqui quatro linhas
+#
+# - ficheiro: /assets/galeria/nome-da-imagem.jpg
+#   legenda: "Sessão de Power BI com a turma de RH"
+#   local: "Talatona, Luanda"
+#   data: "Junho 2026"

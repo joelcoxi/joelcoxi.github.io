@@ -73,6 +73,8 @@ O campo `ordem` controla a sequência na página.
 | Campo | Para quê |
 |---|---|
 | `publico` | `false` mantém o site fora do Google. Muda para `true` no dia do lançamento. |
+| `disponivel` | `false` por omissão. Com `true`, aparece na página inicial um bloco de contacto directo para recrutadores. Só muda isto se quiseres que a tua abertura a propostas seja pública. |
+| `retrato` | caminho da tua fotografia, ex. `/assets/retrato.jpg`. Vazio mostra o painel gráfico. |
 | `email` | usado em todos os botões de contacto |
 | `youtube` | endereço do canal; aparece no rodapé e na página de vídeos |
 | `formspree` | id do formulário; preenchido, substitui os botões de email por formulário |

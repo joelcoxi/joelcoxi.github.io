@@ -1,0 +1,101 @@
+---
+layout: default
+title: Sobre
+permalink: /sobre/
+---
+
+<section class="topo">
+  <div class="wrap">
+    <p class="eyebrow"><span class="tracinho"></span>Sobre</p>
+    <h1 class="pagina-titulo">Joel Coxi</h1>
+    <p class="lede">Gestor de dados. Formador. Luanda, Angola.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap estreito">
+    <div class="prose largo">
+      <!-- EDITAR: esta é a página mais pessoal do site. Reescreve-a com as tuas palavras. -->
+      <p>Trabalho com dados numa seguradora angolana. O meu dia vai da extracção no
+      sistema core até ao mapa que chega ao regulador — extrair, transformar, validar,
+      e depois explicar a alguém o que o número quer dizer.</p>
+
+      <p>Antes disso passei pela banca, em analítica transversal: comercial, compliance,
+      pagamentos e campanhas. Foi aí que percebi que o problema raramente é técnico.
+      É quase sempre alguém que precisa de decidir e não confia no número que tem à frente.</p>
+
+      <p>Dou também formação em People Analytics e Power BI. Mais de trinta pessoas já
+      passaram pelas sessões, a maioria vinda de RH e de áreas de negócio — gente que
+      trabalha com dados todos os dias sem nunca ter tido formação para isso.</p>
+
+      <p>Estudei Engenharia Informática na Universidade Kimpa Vita. Continuo a estudar:
+      a área muda depressa e o que sei hoje não chega para o que quero fazer daqui a
+      cinco anos.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="label">Percurso</p>
+    <div class="path">
+      <div class="step">
+        <p class="when">Actualmente</p>
+        <h3>Gestor de Dados — seguros</h3>
+        <p>Extracção do core, ETL, catálogo de mapas, projectos de inovação em dados, reporte regulatório e validação de cargas.</p>
+      </div>
+      <div class="step">
+        <p class="when">Antes</p>
+        <h3>Técnico júnior — banca</h3>
+        <p>Analítica transversal e dashboards em Power BI ao longo de dois anos.</p>
+      </div>
+      <div class="step">
+        <p class="when">Em paralelo</p>
+        <h3>Formador de People Analytics</h3>
+        <p>Formação em People Analytics e Power BI a profissionais de RH e de negócio.</p>
+      </div>
+      <div class="step">
+        <p class="when">Formação</p>
+        <h3>Licenciatura em Engenharia Informática</h3>
+        <p>Universidade Kimpa Vita. Certificado de Mérito por distinção académica. HackerRank SQL (Advanced).</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="label">Competências</p>
+    <div class="skills">
+      <div>
+        <h4>Dados</h4>
+        <ul><li>T-SQL</li><li>DB2 for i (AS/400)</li><li>Modelação dimensional</li><li>ETL e cargas DM / EDW</li><li>Qualidade e profiling</li></ul>
+      </div>
+      <div>
+        <h4>Análise</h4>
+        <ul><li>Power BI · DAX</li><li>Python</li><li>Excel avançado · VBA</li><li>People Analytics</li></ul>
+      </div>
+      <div>
+        <h4>Domínio</h4>
+        <ul><li>Seguros — produção e sinistros</li><li>Reporte regulatório</li><li>Banca — analítica comercial</li><li>Formação e capacitação</li></ul>
+      </div>
+    </div>
+    <div class="actions">
+      <a class="btn ghost" href="{{ '/galeria/' | relative_url }}">Ver a galeria</a>
+      {% if site.cv != "" %}<a class="btn ghost" href="{{ site.cv | relative_url }}" target="_blank" rel="noopener">CV (PDF)</a>{% endif %}
+    </div>
+  </div>
+</section>
+
+<section id="contacto" class="contact">
+  <div class="wrap">
+    <p class="label">Contacto</p>
+    <h2>Falemos.</h2>
+    <p class="prose">Analítica, qualidade de dados, formação — ou só para discordar de alguma coisa que escrevi. Respondo a todas as mensagens.</p>
+    <div class="contacto-linha">
+      <a class="btn primary" href="mailto:{{ site.email }}">Enviar email</a>
+      {% if site.cv != "" %}<a class="btn ghost" href="{{ site.cv | relative_url }}" target="_blank" rel="noopener">CV (PDF)</a>{% endif %}
+      {% include redes.html %}
+    </div>
+  </div>
+</section>

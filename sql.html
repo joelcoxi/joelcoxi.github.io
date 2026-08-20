@@ -9,26 +9,61 @@ permalink: /sql/
     <p class="eyebrow"><span class="tracinho"></span>Biblioteca</p>
     <h1 class="pagina-titulo">SQL que uso.</h1>
     <p class="lede">
-      Consultas e padrões que resolvem problemas concretos: qualidade, reconciliação,
-      datas e deduplicação. Copiar e adaptar é o objectivo.
+      Consultas e padrões que resolvem problemas concretos. Clica para abrir a que te interessa.
     </p>
   </div>
 </section>
 
 <section>
   <div class="wrap estreito">
+
     {% assign consultas = site.sql | sort: "ordem" %}
-    {% for c in consultas %}
-    <div class="sql-item">
-      <p class="sql-meta">{% if c.dialecto %}{{ c.dialecto }}{% endif %}{% if c.categoria %} · {{ c.categoria }}{% endif %}</p>
-      <h2 class="sql-titulo">{{ c.title }}</h2>
-      {% if c.problema %}<p class="sql-problema">{{ c.problema }}</p>{% endif %}
-      <div class="artigo-corpo sql-corpo">
-        {{ c.content | markdownify }}
-      </div>
+    {% assign cats = consultas | map: "categoria" | uniq | sort %}
+
+    <div class="filtros" role="group" aria-label="Filtrar por categoria">
+      <button class="filtro activo" data-cat="todas">Todas</button>
+      {% for c in cats %}<button class="filtro" data-cat="{{ c }}">{{ c }}</button>{% endfor %}
     </div>
-    {% else %}
-    <p class="prose">A biblioteca está a ser montada.</p>
-    {% endfor %}
+
+    <div class="acordeao">
+      {% for c in consultas %}
+      <details class="sql-item" data-cat="{{ c.categoria }}"{% if forloop.first %} open{% endif %}>
+        <summary>
+          <span class="sql-meta">{{ c.categoria }}{% if c.dialecto %} · {{ c.dialecto }}{% endif %}</span>
+          <span class="sql-titulo">{{ c.title }}</span>
+          <span class="sinal" aria-hidden="true"></span>
+        </summary>
+        <div class="sql-conteudo">
+          {% if c.problema %}<p class="sql-problema">{{ c.problema }}</p>{% endif %}
+          <div class="artigo-corpo sql-corpo">{{ c.content | markdownify }}</div>
+        </div>
+      </details>
+      {% else %}
+      <p class="prose">A biblioteca está a ser montada.</p>
+      {% endfor %}
+    </div>
+
+    <p class="vazio" hidden>Nenhuma consulta nesta categoria.</p>
   </div>
 </section>
+
+<script>
+(function(){
+  var botoes = document.querySelectorAll('.filtro');
+  var itens  = document.querySelectorAll('.acordeao .sql-item');
+  var vazio  = document.querySelector('.vazio');
+  botoes.forEach(function(b){
+    b.addEventListener('click', function(){
+      botoes.forEach(function(x){ x.classList.remove('activo'); });
+      b.classList.add('activo');
+      var cat = b.dataset.cat, visiveis = 0;
+      itens.forEach(function(it){
+        var mostra = (cat === 'todas' || it.dataset.cat === cat);
+        it.hidden = !mostra;
+        if (mostra) visiveis++;
+      });
+      if (vazio) vazio.hidden = visiveis > 0;
+    });
+  });
+})();
+</script>

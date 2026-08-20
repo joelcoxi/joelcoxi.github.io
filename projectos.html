@@ -1,0 +1,66 @@
+---
+layout: default
+title: Projectos
+permalink: /projectos/
+---
+
+<section class="topo">
+  <div class="wrap">
+    <p class="eyebrow"><span class="tracinho"></span>Trabalho</p>
+    <h1 class="pagina-titulo">Projectos</h1>
+    <p class="lede">
+      Casos construídos com dados sintéticos e lógica de negócio real. Nenhum usa
+      dados de clientes ou de empregadores.
+    </p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+
+    {% assign projs = site.projectos | sort: "ordem" %}
+    {% assign topicos = projs | map: "topico" | uniq | sort %}
+
+    <div class="filtros" role="group" aria-label="Filtrar por tópico">
+      <button class="filtro activo" data-cat="todos">Todos</button>
+      {% for t in topicos %}<button class="filtro" data-cat="{{ t }}">{{ t }}</button>{% endfor %}
+    </div>
+
+    <div class="grid" id="grelha-projectos">
+      {% for p in projs %}
+      <a class="card" data-cat="{{ p.topico }}" href="{{ p.repo | default: '#' }}" {% if p.repo %}target="_blank" rel="noopener"{% endif %}>
+        <span class="tag">{{ p.topico }}</span>
+        <h3>{{ p.title }}</h3>
+        <p>{{ p.resumo }}</p>
+        {% if p.resultado %}<p class="resultado">{{ p.resultado }}</p>{% endif %}
+        <span class="stack">{{ p.stack }}</span>
+      </a>
+      {% else %}
+      <p class="prose">Os primeiros projectos estão em construção.</p>
+      {% endfor %}
+    </div>
+
+    <p class="vazio" hidden>Nenhum projecto neste tópico ainda.</p>
+  </div>
+</section>
+
+<script>
+(function(){
+  var botoes = document.querySelectorAll('.filtro');
+  var itens  = document.querySelectorAll('#grelha-projectos .card');
+  var vazio  = document.querySelector('.vazio');
+  botoes.forEach(function(b){
+    b.addEventListener('click', function(){
+      botoes.forEach(function(x){ x.classList.remove('activo'); });
+      b.classList.add('activo');
+      var cat = b.dataset.cat, n = 0;
+      itens.forEach(function(it){
+        var mostra = (cat === 'todos' || it.dataset.cat === cat);
+        it.style.display = mostra ? '' : 'none';
+        if (mostra) n++;
+      });
+      if (vazio) vazio.hidden = n > 0;
+    });
+  });
+})();
+</script>

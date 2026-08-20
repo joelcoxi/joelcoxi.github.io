@@ -1,0 +1,7 @@
+# Números da formação. Edita os valores — devem ser sempre verdadeiros e verificáveis.
+- valor: "3"
+  rotulo: "programas"
+- valor: "30+"
+  rotulo: "formandos"
+- valor: "2"
+  rotulo: "anos a formar"

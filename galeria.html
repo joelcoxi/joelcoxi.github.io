@@ -1,0 +1,31 @@
+---
+layout: default
+title: Galeria
+permalink: /galeria/
+---
+
+<section class="topo">
+  <div class="wrap">
+    <p class="eyebrow"><span class="tracinho"></span>Galeria</p>
+    <h1 class="pagina-titulo">Formações e sessões</h1>
+    <p class="lede">Momentos das sessões de formação em People Analytics e Power BI.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="galeria">
+      {% for foto in site.data.galeria %}
+      <figure class="foto">
+        <img src="{{ foto.ficheiro | relative_url }}" alt="{{ foto.legenda }}" loading="lazy">
+        <figcaption>
+          {{ foto.legenda }}
+          {% if foto.local or foto.data %}<span>{{ foto.local }}{% if foto.local and foto.data %} · {% endif %}{{ foto.data }}</span>{% endif %}
+        </figcaption>
+      </figure>
+      {% else %}
+      <p class="prose">A galeria ainda não tem fotografias.</p>
+      {% endfor %}
+    </div>
+  </div>
+</section>
