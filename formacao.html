@@ -1,0 +1,79 @@
+---
+layout: default
+title: Formação
+permalink: /formacao/
+---
+
+<section class="topo">
+  <div class="wrap">
+    <p class="eyebrow"><span class="tracinho"></span>Formação</p>
+    <h1 class="pagina-titulo">Formação em dados, para quem trabalha com dados.</h1>
+    <p class="lede">
+      Já formei mais de trinta profissionais em People Analytics e Power BI.
+      As sessões partem de problemas reais de quem está na sala, não de datasets de manual.
+    </p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="label">Programas</p>
+    <div class="grid">
+      <!-- EDITAR: ajusta os temas, duração e conteúdos ao que realmente dás -->
+      <div class="card">
+        <span class="tag">Power BI</span>
+        <h3>Power BI do zero ao relatório útil</h3>
+        <p>Ligação a fontes, modelação, DAX essencial e desenho de relatórios que as pessoas usam. Termina com um relatório construído pelos formandos.</p>
+        <span class="stack">16 a 24 horas · presencial ou online</span>
+      </div>
+
+      <div class="card">
+        <span class="tag">People Analytics</span>
+        <h3>People Analytics para RH</h3>
+        <p>Indicadores de pessoas que dizem alguma coisa: rotatividade, absentismo, tempo de preenchimento de vagas. Do Excel ao painel.</p>
+        <span class="stack">12 a 20 horas · presencial ou online</span>
+      </div>
+
+      <div class="card">
+        <span class="tag">SQL</span>
+        <h3>SQL para análise</h3>
+        <p>Consultas de análise: agregações, janelas, junções e verificações de qualidade. Para quem já usa dados mas depende sempre de terceiros para os extrair.</p>
+        <span class="stack">16 horas · presencial ou online</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap estreito">
+    <p class="label">Como funciona</p>
+    <div class="prose">
+      <p><strong>In-company.</strong> A formação é adaptada aos dados e aos problemas da equipa. É o formato com melhor resultado, porque os exercícios saem do trabalho real.</p>
+      <p><strong>Turmas abertas.</strong> Sessões ao fim de semana, para profissionais que não conseguem parar durante a semana.</p>
+      <p><strong>Acompanhamento individual.</strong> Sessões pontuais para desbloquear um problema concreto — um modelo que não fecha, uma consulta que não devolve o esperado.</p>
+    </div>
+  </div>
+</section>
+
+<section id="pedido">
+  <div class="wrap estreito">
+    <p class="label">Pedir informação</p>
+    <h2>Diz-me o que a tua equipa precisa de saber fazer.</h2>
+
+    {% if site.formspree != "" %}
+    <form class="form" action="https://formspree.io/f/{{ site.formspree }}" method="POST">
+      <label>Nome<input type="text" name="nome" required></label>
+      <label>Email<input type="email" name="email" required></label>
+      <label>Organização<input type="text" name="organizacao"></label>
+      <label>O que precisam<textarea name="mensagem" rows="5" required placeholder="Tema, número de pessoas, nível actual e prazo, se já tiverem."></textarea></label>
+      <button type="submit" class="btn primary">Enviar pedido</button>
+    </form>
+    {% else %}
+    <p class="prose">Escreve-me e respondo com uma proposta de programa e calendário.</p>
+    <div class="links">
+      <a class="btn primary" href="mailto:{{ site.email }}?subject=Pedido%20de%20formação">Enviar email</a>
+      <a class="btn ghost" href="https://www.linkedin.com/in/{{ site.linkedin }}" target="_blank" rel="noopener">Falar no LinkedIn</a>
+    </div>
+    {% endif %}
+  </div>
+</section>

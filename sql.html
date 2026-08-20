@@ -1,0 +1,34 @@
+---
+layout: default
+title: Biblioteca SQL
+permalink: /sql/
+---
+
+<section class="topo">
+  <div class="wrap">
+    <p class="eyebrow"><span class="tracinho"></span>Biblioteca</p>
+    <h1 class="pagina-titulo">SQL que uso.</h1>
+    <p class="lede">
+      Consultas e padrões que resolvem problemas concretos: qualidade, reconciliação,
+      datas e deduplicação. Copiar e adaptar é o objectivo.
+    </p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap estreito">
+    {% assign consultas = site.sql | sort: "ordem" %}
+    {% for c in consultas %}
+    <div class="sql-item">
+      <p class="sql-meta">{% if c.dialecto %}{{ c.dialecto }}{% endif %}{% if c.categoria %} · {{ c.categoria }}{% endif %}</p>
+      <h2 class="sql-titulo">{{ c.title }}</h2>
+      {% if c.problema %}<p class="sql-problema">{{ c.problema }}</p>{% endif %}
+      <div class="artigo-corpo sql-corpo">
+        {{ c.content | markdownify }}
+      </div>
+    </div>
+    {% else %}
+    <p class="prose">A biblioteca está a ser montada.</p>
+    {% endfor %}
+  </div>
+</section>

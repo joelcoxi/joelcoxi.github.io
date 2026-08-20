@@ -1,0 +1,38 @@
+---
+layout: default
+---
+
+<article class="artigo">
+  <div class="wrap estreito">
+
+    <p class="eyebrow">
+      {% if page.categoria %}{{ page.categoria }} · {% endif %}
+      {{ page.date | date: "%d.%m.%Y" }} ·
+      {{ page.content | number_of_words | divided_by: 200 | plus: 1 }} min de leitura
+    </p>
+
+    <h1 class="artigo-titulo">{{ page.title }}</h1>
+
+    {% if page.resumo %}<p class="artigo-resumo">{{ page.resumo }}</p>{% endif %}
+
+    <div class="artigo-corpo">
+      {{ content }}
+    </div>
+
+    <div class="artigo-fim">
+      <p>Escrito por <strong>Joel Coxi</strong>, gestor de dados em Luanda. Se este texto te foi útil ou discordas dele, diz-me.</p>
+      <div class="links">
+        <a class="btn primary" href="mailto:{{ site.email }}">Enviar email</a>
+        <a class="btn ghost" href="https://www.linkedin.com/in/{{ site.linkedin }}" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+
+    {% if page.previous or page.next %}
+    <nav class="vizinhos">
+      {% if page.previous %}<a href="{{ page.previous.url | relative_url }}"><span>Artigo anterior</span>{{ page.previous.title }}</a>{% endif %}
+      {% if page.next %}<a href="{{ page.next.url | relative_url }}" class="dir"><span>Artigo seguinte</span>{{ page.next.title }}</a>{% endif %}
+    </nav>
+    {% endif %}
+
+  </div>
+</article>

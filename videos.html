@@ -1,0 +1,42 @@
+---
+layout: default
+title: Vídeos
+permalink: /videos/
+---
+
+<section class="topo">
+  <div class="wrap">
+    <p class="eyebrow"><span class="tracinho"></span>Canal</p>
+    <h1 class="pagina-titulo">Vídeos</h1>
+    <p class="lede">
+      Explicações curtas sobre SQL, Power BI e trabalho com dados no dia-a-dia.
+      Feitos para quem tem de entregar um número a alguém amanhã de manhã.
+    </p>
+    {% if site.youtube != "" %}
+    <div class="actions">
+      <a class="btn primary" href="{{ site.youtube }}" target="_blank" rel="noopener">Subscrever o canal</a>
+    </div>
+    {% endif %}
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    {% assign videos = site.videos | sort: "data" | reverse %}
+    <div class="videos">
+      {% for v in videos %}
+      <a class="video" href="https://www.youtube.com/watch?v={{ v.id }}" target="_blank" rel="noopener">
+        <span class="thumb">
+          <img src="https://img.youtube.com/vi/{{ v.id }}/hqdefault.jpg" alt="{{ v.title }}" loading="lazy">
+          <span class="play">▶</span>
+        </span>
+        <span class="video-meta">{{ v.data | date: "%d.%m.%Y" }}{% if v.categoria %} · {{ v.categoria }}{% endif %}{% if v.duracao %} · {{ v.duracao }}{% endif %}</span>
+        <span class="video-titulo">{{ v.title }}</span>
+        {% if v.resumo %}<span class="video-resumo">{{ v.resumo }}</span>{% endif %}
+      </a>
+      {% else %}
+      <p class="prose">Ainda não há vídeos publicados aqui. Os primeiros estão a caminho.</p>
+      {% endfor %}
+    </div>
+  </div>
+</section>

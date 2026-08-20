@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% if page.title %}{{ page.title }} — {{ site.title }}{% else %}{{ site.title }} — {{ site.tagline }}{% endif %}</title>
+{% unless site.publico %}<meta name="robots" content="noindex, nofollow">{% endunless %}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=JetBrains+Mono:wght@400;500&family=Inter:wght@400;500&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ '/assets/css/estilo.css' | relative_url }}">
+<link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ '/feed.xml' | relative_url }}">
+{% if site.publico %}{% seo %}{% endif %}
+{% if site.goatcounter != "" %}<script data-goatcounter="https://{{ site.goatcounter }}.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>{% endif %}
+</head>
+<body>
+
+<div class="bar">
+  <div class="wrap">
+    <a class="mark" href="{{ '/' | relative_url }}">mr.coxi<span>.</span></a>
+    <nav class="nav">
+      <a href="{{ '/artigos/' | relative_url }}">Artigos</a>
+      <a href="{{ '/videos/' | relative_url }}">Vídeos</a>
+      <a href="{{ '/sql/' | relative_url }}">SQL</a>
+      <a href="{{ '/formacao/' | relative_url }}">Formação</a>
+      <a href="{{ '/#contacto' | relative_url }}">Contacto</a>
+    </nav>
+  </div>
+</div>
+
+{{ content }}
+
+<div class="wrap">
+  <footer>
+    <span>mr.coxi<span class="dot">.</span> — Luanda, Angola</span>
+    <span>
+      <a href="{{ '/feed.xml' | relative_url }}">RSS</a> ·
+      <a href="https://www.linkedin.com/in/{{ site.linkedin }}" target="_blank" rel="noopener">LinkedIn</a> ·
+      <a href="https://github.com/{{ site.github }}" target="_blank" rel="noopener">GitHub</a>
+      {% if site.youtube != "" %} · <a href="{{ site.youtube }}" target="_blank" rel="noopener">YouTube</a>{% endif %}
+    </span>
+  </footer>
+</div>
+
+</body>
+</html>

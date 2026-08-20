@@ -1,0 +1,50 @@
+# ===== Identidade — editar aqui uma vez, muda em todo o lado =====
+title: "Joel Coxi"
+tagline: "Dados ao Serviço do Negócio"
+description: "Gestor de dados no sector segurador angolano. SQL, Power BI, Python e qualidade de dados aplicados a problemas de negócio."
+author: "Joel Coxi"
+email: "o-teu-email@exemplo.com"       # EDITAR
+url: "https://joelcoxi.github.io"
+linkedin: "joel-coxi"
+github: "joelcoxi"
+youtube: ""                            # EDITAR: endereço do canal, ex. https://youtube.com/@mrcoxi
+
+# ===== Interruptor de visibilidade =====
+# false -> o site está no ar mas pede aos motores de busca para não o indexarem
+# true  -> abre ao público. Muda esta linha no dia do lançamento.
+publico: false
+
+# ===== Integrações opcionais (vazio = desligada) =====
+formspree: ""      # id do formulário Formspree, ex. "xayzqwer"
+goatcounter: ""    # código GoatCounter, ex. "joelcoxi"
+cv: ""             # ex. "/assets/cv-joel-coxi.pdf"
+
+# ===== Motor =====
+markdown: kramdown
+highlighter: rouge
+permalink: /artigos/:title/
+timezone: Africa/Luanda
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+feed:
+  path: /feed.xml
+
+collections:
+  videos:
+    output: false
+  sql:
+    output: false
+
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+
+exclude:
+  - COMO-PUBLICAR.md
+  - README.md
