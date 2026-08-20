@@ -1,0 +1,32 @@
+---
+layout: default
+title: Artigos
+permalink: /artigos/
+---
+
+<section class="topo">
+  <div class="wrap">
+    <p class="eyebrow"><span class="tracinho"></span>Escrita</p>
+    <h1 class="pagina-titulo">Artigos</h1>
+    <p class="lede">
+      Notas sobre dados em contexto real: SQL, qualidade, seguros e o que acontece
+      entre a extracção e a decisão.
+    </p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="lista">
+      {% for post in site.posts %}
+      <a class="linha" href="{{ post.url | relative_url }}">
+        <span class="linha-meta">{{ post.date | date: "%d.%m.%Y" }}{% if post.categoria %} · {{ post.categoria }}{% endif %} · {{ post.content | number_of_words | divided_by: 200 | plus: 1 }} min</span>
+        <span class="linha-titulo">{{ post.title }}</span>
+        {% if post.resumo %}<span class="linha-resumo">{{ post.resumo }}</span>{% endif %}
+      </a>
+      {% else %}
+      <p class="prose">Ainda não há artigos publicados. O primeiro está a caminho.</p>
+      {% endfor %}
+    </div>
+  </div>
+</section>
